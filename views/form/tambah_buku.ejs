@@ -1,41 +1,51 @@
 <%- include('../partials/header') %>
 
 <div class="container">
-  <form method="POST">
-    <div class="mb-3">
-      <label for="judul" class="form-label">Judul Buku</label>
-      <input type="text" class="form-control" name="judul" aria-describedby="emailHelp">
+  <div class="card mt-5">
+    <div class="card-header">
+      Tambah buku
     </div>
-    <div class="mb-3">
-      <label for="jenis" class="form-label">Jenis Buku</label>
-      <div class="input-group">
-        <select class="form-select form-control" name="jenis">
-          <option value="Novel">Novel</option>
-          <option value="Ekonomi">Ekonomi</option>
-          <option value="Ensiklopedi">Ensiklopedi</option>
-          <option value="Biografi">Biografi</option>
-          <option value="Teknologi">Teknologi</option>
-          <option value="Sains">Sains</option>
-          <option value="Bahasa">Bahasa</option>
-        </select>
-      </div>
-    </div>
-    <div class="mb-3">
-      <label for="pengarang" class="form-label">Pengarang</label>
-      <input type="text" class="form-control" name="pengarang">
-    </div>
-    <div class="mb-3">
-      <label for="penerbit" class="form-label">Penerbit</label>
-      <input type="text" class="form-control" name="penerbit">
-    </div>
-    <div class="mb-3">
-      <label for="tahun_terbit" class="form-label">Tahun Terbit</label>
-      <input type="text" class="form-control" name="tahun_terbit">
-    </div>
+    <div class="card-body">
+      <form method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="judul" class="form-label">Judul Buku</label>
+          <input type="text" class="form-control" name="judul" aria-describedby="emailHelp" required>
+        </div>
+        <div class="mb-3">
 
-    <button type="submit" class="btn btn-primary">Submit</button>
-    <a href="/buku" class="btn btn-danger">Batalkan</a>
-  </form>
+          <label class="form-label" for="gambar" >Gambar</label>
+
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="gambar" name="gambar"  accept="image/x-png,image/gif,image/jpeg" required>
+              <label class="custom-file-label" for="gambar">Pilih Gambar</label>
+            </div>
+    
+        </div>
+        
+        <div class="mb-3">
+          <label for="pengarang" class="form-label">Pengarang</label>
+          <input type="text" class="form-control" name="pengarang" required>
+        </div>
+        <div class="mb-3">
+          <label for="penerbit" class="form-label">Penerbit</label>
+          <input type="text" class="form-control" name="penerbit" required>
+        </div>
+    
+        
+    
+        <button type="submit" class="btn btn-success">Tambahkan</button>
+      </form>
+    </div>
+  </div>
+
 </div>
+
+<script>
+  document.querySelector('.custom-file-input').addEventListener('change',function(e){
+    var fileName = document.getElementById("gambar").files[0].name;
+    var nextSibling = e.target.nextElementSibling
+    nextSibling.innerText = fileName
+  })
+</script>
 
 <%- include('../partials/footer') %> 

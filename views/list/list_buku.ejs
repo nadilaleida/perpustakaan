@@ -1,36 +1,25 @@
 <%- include('../partials/header') %>
+<style>
+  .card {display:inline-block;}
+</style>
+<div class="container-fluid">
+  <h1 class="text-center bg-light mt-3">Daftar Buku</h1>
+  <a href="/buku/tambah" class="btn btn-success my-3">Tambah Buku</a>
+  <div class="row">
+    
+    <% data.forEach((buku, idx) => { %>
+      <div class="card mx-2 my-2" style="width: 18rem;">
+        <h5 class="card-title"><%= buku.judul  %></h5>
+        <img src="images/<%= buku.gambar %>" class="card-img-top" alt="..." style="max-height: 25rem;">
+        <div class="card-body">
+          <a href="/buku/ubah/<%= buku.id %>" class="btn btn-warning">Edit</a>
+          <a href="/buku/hapus/<%= buku.id %>" class="btn btn-danger">Hapus</a>
+        </div>
+      </div>
 
-<div class="container">
-  <a href="/buku/tambah" class="btn btn-success float-right my-3">Tambah Buku</a>
-  <table class="table table-hover">
-    <thead class="table-primary">
-      <tr>
-        <th scope="col">No</th>
-        <th scope="col">Judul</th>
-        <th scope="col">Pengarang</th>
-        <th scope="col">Jenis</th>
-        <th scope="col">Penerbit</th>
-        <th scope="col">Tahun Terbit</th>
-        <th scope="col">Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% data.forEach((buku, idx) => { %>
-      <tr>
-        <th scope="row"><%= ++idx%></th>
-        <td><%= buku.judul %></td>
-        <td><%= buku.pengarang %></td>
-        <td><%= buku.jenis %></td>
-        <td><%= buku.penerbit %></td>
-        <td><%= buku.tahun_terbit %></td>
-        <td>
-          <a href="/buku/ubah/<%= buku.id %>" class="btn"><i class="bi bi-pencil-square text-success"></i></a>
-          <a href="/buku/hapus/<%= buku.id %>" class="btn"><i class="bi bi-trash-fill text-danger"></i></a>
-        </td>
-      </tr>
       <% }) %>
-    </tbody>
-  </table>
+
+  </div>
 </div>
 
 <%- include('../partials/footer') %> 

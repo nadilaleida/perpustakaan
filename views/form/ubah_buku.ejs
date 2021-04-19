@@ -1,41 +1,29 @@
 <%- include('../partials/header') %>
 
 <div class="container">
-  <form method="POST" action="/buku/ubah/<%= data.id %>">
-    <div class="mb-3">
-      <label for="judul" class="form-label">Judul Buku</label>
-      <input type="text" class="form-control" name="judul" value="<%= data.judul%>">
+  <div class="card mt-5">
+    <div class="card-header">
+      Edit buku
     </div>
-    <div class="mb-3">
-      <label for="jenis" class="form-label">Jenis Buku</label>
-      <div class="input-group">
-        <select class="form-select form-control" name="jenis">
-          <option value="Novel" <%= data.jenis === 'Novel' ? 'selected' : ''%>>Novel</option>
-          <option value="Ekonomi" <%= data.jenis === 'Ekonomi' ? 'selected' : ''%>>Ekonomi</option>
-          <option value="Ensiklopedi" <%= data.jenis === 'Ensiklopedi' ? 'selected' : ''%>>Ensiklopedi</option>
-          <option value="Biografi" <%= data.jenis === 'Biografi' ? 'selected' : ''%>>Biografi </option>
-          <option value="Teknologi" <%= data.jenis === 'Teknologi' ? 'selected' : ''%>>Teknologi</option>
-          <option value="Sains" <%= data.jenis === 'Sains' ? 'selected' : ''%>>Sains</option>
-          <option value="Bahasa" <%= data.jenis === 'Bahasa' ? 'selected' : ''%>>Bahasa</option>
-        </select>
-      </div>
-    </div>
-    <div class="mb-3">
-      <label for="pengarang" class="form-label">Pengarang</label>
-      <input type="text" class="form-control" name="pengarang" value="<%= data.pengarang%>">
-    </div>
-    <div class="mb-3">
-      <label for="penerbit" class="form-label">Penerbit</label>
-      <input type="text" class="form-control" name="penerbit" value="<%= data.penerbit%>">
-    </div>
-    <div class="mb-3">
-      <label for="tahun_terbit" class="form-label">Tahun Terbit</label>
-      <input type="text" class="form-control" name="tahun_terbit" value="<%= data.tahun_terbit%>">
-    </div>
+    <div class="card-body">
+      <form method="POST" action="/buku/ubah/<%= data.id %>">
+        <div class="mb-3">
+          <label for="judul" class="form-label">Judul Buku</label>
+          <input type="text" class="form-control" name="judul" value="<%= data.judul%>">
+        </div>
+        <div class="mb-3">
+          <label for="pengarang" class="form-label">Pengarang</label>
+          <input type="text" class="form-control" name="pengarang" value="<%= data.pengarang%>">
+        </div>
+        <div class="mb-3">
+          <label for="penerbit" class="form-label">Penerbit</label>
+          <input type="text" class="form-control" name="penerbit" value="<%= data.penerbit%>">
+        </div>
 
-    <button type="submit" class="btn btn-primary">Update</button>
-    <a href="/buku" class="btn btn-danger">Batalkan</a>
-  </form>
+        <button type="submit" class="btn btn-success btn-block">Simpan</button>
+      </form>
+    </div>
+  </div>
 </div>
 
 <%- include('../partials/footer') %> 

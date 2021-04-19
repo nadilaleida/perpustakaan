@@ -14,14 +14,11 @@ module.exports = {
       pengarang: {
         type: Sequelize.STRING
       },
-      jenis: {
-        type: Sequelize.STRING
-      },
       penerbit: {
         type: Sequelize.STRING
       },
-      tahun_terbit: {
-        type: Sequelize.INTEGER
+      gambar: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
